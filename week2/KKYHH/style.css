@@ -1,0 +1,54 @@
+@import "/reset.css";
+
+body {
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-all {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+  transition: background-color 0.5s ease;
+}
+
+.decrease,
+.reset,
+.increase {
+  cursor: pointer;
+  border: solid 2px black;
+  border-radius: 5px;
+  background-color: white;
+  font-weight: 500;
+  margin: 10px;
+  padding: 5px 15px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 80px;
+}
+
+.number {
+  font-weight: bold;
+  font-size: 100px;
+  padding: 10px;
+}
