@@ -1,0 +1,108 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #edf8ff;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 600px;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(190, 205, 218);
+}
+
+.title {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.line {
+  width: 10%;
+  border: 2px solid dodgerblue;
+}
+
+.img {
+  position: relative;
+  margin-bottom: 20px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.quote {
+  z-index: 1;
+  position: absolute;
+  transform: translate(5px, 5px);
+  width: 30px;
+  height: 30px;
+  background-color: dodgerblue;
+  border-radius: 50%;
+}
+
+.quote i {
+  line-height: 30px;
+  color: #ffffff;
+}
+
+img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.back-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translate(7px, -3px);
+  background-color: dodgerblue;
+  border-radius: 50%;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.job {
+  color: dodgerblue;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.review-content {
+  height: 100px;
+  padding: 10px;
+  font-size: 13px;
+}
+
+#prev {
+  margin-right: 20px;
+}
+
+button i {
+  color: skyblue;
+  pointer-events: none;
+}
+
+#random {
+  margin-top: 10px;
+  padding: 4px;
+  border: 2px solid skyblue;
+  border-radius: 10px;
+  background-color: aliceblue;
+  font-size: 11px;
+  font-weight: bold;
+}

@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: hsl(210, 36%, 96%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  line-height: 1.5rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+header h3 {
+  font-size: 2rem;
+  letter-spacing: 0.25rem;
+}
+
+.underbar {
+  height: 0.25rem;
+  width: 5rem;
+  background-color: hsl(205, 78%, 60%);
+}
+
+.review_container {
+  width: 80vw;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.image_wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profile_image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+
+.image_wrapper::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: hsl(205, 78%, 60%);
+  position: absolute;
+  top: -0.25rem;
+  right: -0.5rem;
+  border-radius: 50%;
+}
+
+.image_wrapper::after {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f10e';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  transform: translateY(25%);
+  background-color: hsl(205, 78%, 60%);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 0.875rem;
+  letter-spacing: 0.25rem;
+}
+
+.job {
+  color: hsl(205, 78%, 60%);
+  font-size: 0.85rem;
+}
+
+.review {
+  color: hsl(210, 22%, 49%);
+  text-align: center;
+}
+
+.prev_button,
+.next_button {
+  background-color: #fff;
+  color: hsl(205, 90%, 76%);
+  font-weight: 900;
+  font-size: x-large;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+
+.prev_button:hover,
+.next_button:hover {
+  color: hsl(205, 78%, 60%);
+}
+
+.prev_button {
+  margin-right: 10px;
+}
+
+.next_button {
+  margin-left: 10px;
+}
+
+.random_button {
+  background-color: hsl(205, 100%, 96%);
+  color: hsl(205, 78%, 60%);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s linear;
+  border: 2px outset;
+  border-color: hsl(205, 78%, 60%);
+  cursor: pointer;
+}
+
+.random_button:hover {
+  background-color: hsl(205, 78%, 60%);
+  color: hsl(205, 86%, 17%);
+}
