@@ -1,0 +1,116 @@
+body {
+  margin: auto;
+  background-image: url("./img/burgerthree.gif");
+  background-color: skyblue;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.banner {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px 100px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.banner-title {
+  margin: auto;
+  text-transform: capitalize;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.banner-btn {
+  background-color: rgb(82, 156, 234);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  cursor: pointer;
+  border: 1px solid rgb(82, 156, 234);
+  border-radius: 10px;
+  background-color: none;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.banner-btn:hover {
+  background-color: white;
+  color: rgb(82, 156, 234);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid white;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 30px 150px;
+}
+
+.modal-content {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.modal-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  border: none;
+  background: none;
+  font-size: 40px;
+  font-weight: bold;
+  color: red;
+  transition: all 0.5s ease;
+}
+
+.modal-btn:hover {
+  transform: scale(1.25);
+  color: rgb(234, 110, 110);
+}
+
+.modal-show {
+  display: none;
+}
+
+.banner-hidden {
+  display: none;
+}
+
+.cheese-burger {
+  height: 500px;
+  width: 300px;
+  animation: burger 5s linear infinite;
+}
+
+@keyframes burger {
+  0% {
+    transform: rotate(0dg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
