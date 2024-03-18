@@ -36,8 +36,8 @@
 
 | week                                  | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  |
 | ------------------------------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [문소희](https://github.com/ccconac)  | ✅  | ✅  | ✅  | ✅  |     | ✅  | ✅  |     |     |
-| [고세종](https://github.com/SebellKo) | ✅  |     | ✅  |     | ✅  | ✅  | ✅  |     |     |
-| [김용호](https://github.com/KKYHH)    | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  |     |     |     |
-| [강채연](https://github.com/rkdcodus) | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  |     |     |     |
+| [문소희](https://github.com/ccconac)  | ✅  | ✅  | ✅  | ✅  |     | ✅  | ✅  | ✅  |     |
+| [고세종](https://github.com/SebellKo) | ✅  |     | ✅  |     | ✅  | ✅  | ✅  | ✅  |     |
+| [김용호](https://github.com/KKYHH)    | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  |     | ✅  |     |
+| [강채연](https://github.com/rkdcodus) | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  | ✅  |     |     |
 | [최동현](https://github.com/saetakki) | ✅  |     |     |     |     |     |     |     |     |

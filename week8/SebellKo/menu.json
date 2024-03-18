@@ -1,0 +1,72 @@
+[
+  {
+    "menu": "Buttermilk Pancakes",
+    "type": "Breakfast",
+    "price": 15.99,
+    "src": "./images/pancake.jpeg",
+    "description": "I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed"
+  },
+  {
+    "menu": "Diner Double",
+    "type": "Lunch",
+    "price": 13.99,
+    "src": "./images/dinnerdouble.jpeg",
+    "description": "vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats"
+  },
+  {
+    "menu": "Godzilla Milkshake",
+    "type": "Shakes",
+    "price": 6.99,
+    "src": "./images/milkshake.jpeg",
+    "description": "ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral."
+  },
+  {
+    "menu": "Country Delight",
+    "type": "Breakfast",
+    "price": 20.99,
+    "src": "./images/countrydelight.jpeg",
+    "description": "Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut,"
+  },
+  {
+    "menu": "Egg Attack",
+    "type": "Lunch",
+    "price": 22.99,
+    "src": "./images/eggattack.jpeg",
+    "description": "franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up"
+  },
+  {
+    "menu": "Oreo Dream",
+    "type": "Shakes",
+    "price": 18.99,
+    "src": "./images/oreodream.jpeg",
+    "description": "Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday"
+  },
+  {
+    "menu": "Bacon Overflow",
+    "type": "Breakfast",
+    "price": 8.99,
+    "src": "./images/baconoverflow.jpeg",
+    "description": "carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird"
+  },
+  {
+    "menu": "American Classic",
+    "type": "Lunch",
+    "price": 12.99,
+    "src": "./images/americanclassic.jpeg",
+    "description": "on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut"
+  },
+  {
+    "menu": "Quarantine Buddy",
+    "type": "Shakes",
+    "price": 16.99,
+    "src": "./images/quarantinebuddy.jpeg",
+    "description": "skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing."
+  },
+  {
+    "menu": "Steak Dinner",
+    "type": "Dinner",
+    "price": 39.99,
+    "src": "./images/steakdinner.jpeg",
+    "description": "skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing."
+  }
+]
