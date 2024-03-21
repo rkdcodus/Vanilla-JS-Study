@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+}
+
+section {
+  overflow: hidden;
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.text {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  line-height: 80vh;
+  font-size: 32px;
+  color: white;
+}
+
+.toggle-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  width: 70px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(226, 226, 226);
+  padding: 0;
+}
+
+#toggle-text {
+  display: inline-block;
+  width: 60px;
+  color: rgb(255, 255, 255);
+  transform: translateY(-15px);
+  transition: 0.3s;
+}
+
+#toggle-text i {
+  color: #fff;
+}
+
+.switch {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #ef0107;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.play {
+  transform: translate(30px);
+}
