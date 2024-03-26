@@ -42,39 +42,6 @@ nav span {
 #menu-close:hover {
   color: red;
 }
-.open {
-  transform: translateY(0);
-  background-color: rgba(255, 255, 255, 1);
-  height: 350px;
-  flex-direction: column;
-  transition: 0.5s linear;
-}
-
-@media screen and (max-width: 785px) {
-  nav {
-    transform: translateY(-100%);
-  }
-  nav span {
-    color: #000;
-  }
-  #menu {
-    cursor: pointer;
-    font-size: 22px;
-    display: block;
-    color: #fff;
-    position: fixed;
-    top: 40px;
-    right: 50px;
-    transition: 0.5s;
-    z-index: 1;
-  }
-  #menu:hover {
-    transform: rotate(180deg);
-  }
-  #menu-close {
-    display: block;
-  }
-}
 
 section {
   width: 100vw;
@@ -110,41 +77,52 @@ section {
   color: #000;
 }
 
-.section2 {
-  position: relative;
-  background-color: #000;
-  color: #fff;
-}
-
-.section2 h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.section3 {
-  position: relative;
-  background-color: #000;
-  color: #fff;
-}
-
-.section3 h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
+.section2,
+.section3,
 .section4 {
   position: relative;
   background-color: #000;
   color: #fff;
 }
 
+.section2 h1,
+.section3 h1,
 .section4 h1 {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 785px) {
+  .open {
+    transform: translateY(0);
+    background-color: rgba(255, 255, 255, 1);
+    height: 350px;
+    flex-direction: column;
+    transition: 0.3s linear;
+  }
+  nav {
+    transform: translateY(-100%);
+  }
+  nav span {
+    color: #000;
+  }
+  #menu {
+    cursor: pointer;
+    font-size: 22px;
+    display: block;
+    color: #fff;
+    position: fixed;
+    top: 40px;
+    right: 50px;
+    transition: 0.5s;
+    z-index: 1;
+  }
+  #menu:hover {
+    transform: rotate(180deg);
+  }
+  #menu-close {
+    display: block;
+  }
 }
