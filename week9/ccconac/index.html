@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>강아지 영상!</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="loading">
+      <img src="./assets/loading.gif" />
+    </div>
+    <div>
+      <video &controls="0" muted autoplay loop class="video-container">
+        <source src="./assets/dog.mp4" type="video/mp4" />
+      </video>
+      <button class="switch-button">
+        <div class="switch"></div>
+        <span>재생</span>
+        <span>정지</span>
+      </button>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
