@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Pinterest</h1>
+        <span>페이지 소개</span>
+      </header>
+      <main>
+        <article class="img-wrapper">
+          <img
+            id="content-image"
+            src="https://i.pinimg.com/564x/95/c4/b5/95c4b5d8eea0e1bf7c3600fbb462cd13.jpg" />
+        </article>
+        <article class="content-wrapper">
+          <div class="button-wrapper">
+            <button class="tab-button" data-id="green">GREEN</button>
+            <button class="tab-button" data-id="blue">BLUE</button>
+            <button class="tab-button" data-id="pink">PINK</button>
+          </div>
+          <div class="content display" id="green">
+            <h2 class="sub-title">GREEN</h2>
+            <span class="description">JOY: HELLO</span>
+          </div>
+          <div class="content" id="blue">
+            <h2 class="sub-title">BLUE</h2>
+            <span>FISH</span>
+          </div>
+          <div class="content" id="pink">
+            <h2 class="sub-title">PINK</h2>
+            <span>PINK TAPE</span>
+          </div>
+        </article>
+      </main>
+    </div>
+    <script type="module" src="./scripts/app.js"></script>
+  </body>
+</html>
