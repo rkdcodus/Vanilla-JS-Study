@@ -39,23 +39,25 @@ const endTimer = () => {
 const startTimer = () => {
   initTimer();
   const reduceTimer = setInterval(() => {
-    time[3] -= 1;
-    if (time[3] === -1) {
-      time[2] -= 1;
-      time[3] = 59;
-    }
-    if (time[2] === -1) {
-      time[2] = 59;
-      time[1] -= 1;
-    }
-    if (time[1] === -1) {
-      time[1] = 23;
-      time[0] -= 1;
-    }
     if (time[0] === 0 && time[1] === 0 && time[2] === 0 && time[3] === 0) {
       clearInterval(reduceTimer);
       endTimer();
+    } else {
+      time[3] -= 1;
+      if (time[3] === -1) {
+        time[2] -= 1;
+        time[3] = 59;
+      }
+      if (time[2] === -1) {
+        time[2] = 59;
+        time[1] -= 1;
+      }
+      if (time[1] === -1) {
+        time[1] = 23;
+        time[0] -= 1;
+      }
     }
+
     printData();
   }, 1000);
 };
