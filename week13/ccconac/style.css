@@ -1,0 +1,65 @@
+body {
+  padding-top: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.generator {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+label {
+  font-size: 20px;
+}
+
+.paragraphs-input {
+  padding: 5px 10px;
+
+  border: 1px solid #737373;
+  border-radius: 10px;
+
+  outline: none;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+.generate-button {
+  padding: 5px 8px;
+
+  background-color: #fff;
+
+  border: 1px solid #737373;
+  border-radius: 13px;
+
+  cursor: pointer;
+}
+
+.generate-button:hover {
+  border: 1px solid #000;
+
+  color: #fff;
+  background-color: #000;
+}
+
+.lipsums {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 20px;
+
+  width: 700px;
+}
