@@ -21,9 +21,10 @@ const datas = [
   },
 ];
 const image = document.querySelector(".image_wrap");
-
+const screen = document.getElementById("screen-size");
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
+
 let center = 0;
 
 const nextSlide = () => {
@@ -48,6 +49,24 @@ const createImage = () => {
   });
 };
 
+const toggleFullScreen = () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+    screen.replaceChildren();
+    screen.insertAdjacentHTML(
+      "beforeend",
+      '<i class="fa-solid fa-down-left-and-up-right-to-center"></i>'
+    );
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+      screen.replaceChildren();
+      screen.insertAdjacentHTML("beforeend", '<i class="fa-solid fa-expand">');
+    }
+  }
+};
+
 next.addEventListener("click", nextSlide);
 prev.addEventListener("click", prevSlide);
+screen.addEventListener("click", toggleFullScreen);
 window.addEventListener("DOMContentLoaded", createImage);
