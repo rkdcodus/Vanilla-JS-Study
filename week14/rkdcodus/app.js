@@ -1,18 +1,19 @@
 const input = document.getElementById("input");
 const button = document.getElementById("button");
 const list = document.getElementById("list");
-const itemCount = 0;
+let itemCount = 0;
 let itemList = [];
 
 // li 태그 생성 함수
 const createHTML = (text, id) => {
-  itemCount += 1;
   const newItem = `
-        <li id=${id}>
-          <span id="itemText">${text}</span>
-          <button id="edit">수정</button>
-          <button id="remove">삭제</button>
-        </li>`;
+  <li id=${id}>
+    <span id="itemText">${text}</span>
+    <button id="edit">수정</button>
+    <button id="remove">삭제</button>
+  </li>
+  `;
+  itemCount += 1;
 
   return newItem;
 };
@@ -20,9 +21,10 @@ const createHTML = (text, id) => {
 // 아이템 추가 함수
 const createItem = () => {
   const text = input.value;
+  itemList.push(text);
   const newItem = createHTML(text, itemList.indexOf(text));
 
-  itemList.push(text);
+  // 화면 반영
   list.insertAdjacentHTML("beforeend", newItem);
 };
 
