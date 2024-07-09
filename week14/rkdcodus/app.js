@@ -1,5 +1,6 @@
 const input = document.getElementById("input");
-const button = document.getElementById("button");
+const submitButton = document.getElementById("submitButton");
+const clearButton = document.getElementById("clearButton");
 const list = document.getElementById("list");
 let itemCount = 0;
 let itemList = [];
@@ -10,7 +11,7 @@ const createHTML = (text, id) => {
   <li id=${id}>
     <span id="itemText">${text}</span>
     <button id="edit">수정</button>
-    <button id="remove">삭제</button>
+    <button id="delete">삭제</button>
   </li>
   `;
   itemCount += 1;
@@ -26,6 +27,9 @@ const createItem = () => {
 
   // 화면 반영
   list.insertAdjacentHTML("beforeend", newItem);
+  if (!clearButton.classList.contains("show")) {
+    clearButton.classList.add("show");
+  }
 };
 
 // 아이템 삭제 함수
@@ -34,7 +38,10 @@ const deleteItem = (target) => {
   delete itemList[target.id];
   itemCount -= 1;
 
-  if (itemCount === 0) itemList = [];
+  if (itemCount === 0) {
+    itemList = [];
+    clearButton.classList.remove("show");
+  }
 };
 
 // 아이템 수정 함수
@@ -45,10 +52,20 @@ const clickItem = (e) => {
   const option = e.target.id;
   const selectedItem = e.target.parentNode;
 
-  if (option === "remove") deleteItem(selectedItem);
+  if (option === "delete") deleteItem(selectedItem);
   else if (option === "edit") {
   }
 };
 
-button.addEventListener("click", createItem);
+// 아이템 전체 삭제
+const clearItem = () => {
+  itemList = [];
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+  clearButton.classList.remove("show");
+};
+
+submitButton.addEventListener("click", createItem);
+clearButton.addEventListener("click", clearItem);
 list.addEventListener("click", clickItem);
