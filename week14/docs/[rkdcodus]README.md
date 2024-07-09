@@ -10,7 +10,7 @@
 - [ ] UI 구현
 - [x] 아이템 create 기능 구현
 - [x] 아이템 read 기능 구현
-- [ ] 아이템 update 기능 구현
+- [x] 아이템 update 기능 구현
 - [x] 아이템 delete 기능 구현
   - [x] 아이템 삭제 버튼
   - [x] 아이템 전체 clear 버튼
