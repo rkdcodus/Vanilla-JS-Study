@@ -3,6 +3,14 @@ const submitButton = document.getElementById("submitButton");
 const editButton = document.getElementById("editButton");
 const clearButton = document.getElementById("clearButton");
 const list = document.getElementById("list");
+
+const SHOW = "show";
+const HIDE = "hide";
+const OPTIONS = {
+  DELETE: "delete",
+  EDIT: "edit",
+};
+
 let itemList = [];
 let editId = -1;
 
@@ -19,6 +27,13 @@ const createHTML = (text, id) => {
   return newItem;
 };
 
+// li 태그 전부 삭제
+const clear = () => {
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+};
+
 // itemList 출력
 const printItem = () => {
   clear();
@@ -28,31 +43,26 @@ const printItem = () => {
     list.insertAdjacentHTML("beforeend", newItem);
   });
 
-  if (!clearButton.classList.contains("show")) {
-    clearButton.classList.add("show");
+  if (!clearButton.classList.contains(SHOW)) {
+    clearButton.classList.add(SHOW);
   }
 
   input.value = "";
 };
 
-// li 태그 전부 삭제
-const clear = () => {
-  while (list.firstChild) {
-    list.removeChild(list.firstChild);
-  }
-};
-
 // 아이템 추가
 const submit = () => {
+  if (input.value === "") return;
   itemList.push(input.value);
   printItem();
 };
 
 // 아이템 수정
 const editComplete = () => {
-  submitButton.classList.remove("hide");
-  editButton.classList.remove("show");
   itemList[editId] = input.value;
+  submitButton.classList.remove(HIDE);
+  editButton.classList.remove(SHOW);
+
   printItem();
 };
 
@@ -60,37 +70,40 @@ const editComplete = () => {
 const deleteItem = (target) => {
   list.removeChild(target);
   itemList.splice(target.id);
+
   if (!itemList.length) {
-    clearButton.classList.remove("show");
+    clearButton.classList.remove(SHOW);
   }
 };
 
 // 아이템 수정시 input 창 변경
 const editItem = (target) => {
   const text = itemList[target.id];
+
   editId = target.id;
-  submitButton.classList.add("hide");
-  editButton.classList.add("show");
   input.value = text;
+  submitButton.classList.add(HIDE);
+  editButton.classList.add(SHOW);
 };
 
-// 아이템 삭제 or 수정 결정
-const clickItem = (e) => {
+// 아이템 option 버튼 판단
+const clickItemOption = (e) => {
+  const { DELETE, EDIT } = OPTIONS;
   const option = e.target.id;
   const selectedItem = e.target.parentNode;
 
-  if (option === "delete") deleteItem(selectedItem);
-  else if (option === "edit") editItem(selectedItem);
+  if (option === DELETE) deleteItem(selectedItem);
+  else if (option === EDIT) editItem(selectedItem);
 };
 
 // 아이템 전체 삭제
 const clearItem = () => {
   clear();
   itemList = [];
-  clearButton.classList.remove("show");
+  clearButton.classList.remove(SHOW);
 };
 
 submitButton.addEventListener("click", submit);
 editButton.addEventListener("click", editComplete);
+list.addEventListener("click", clickItemOption);
 clearButton.addEventListener("click", clearItem);
-list.addEventListener("click", clickItem);
