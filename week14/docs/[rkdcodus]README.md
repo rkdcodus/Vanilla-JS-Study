@@ -180,8 +180,8 @@ li 태그 안에는 button이 2개 들어있는데 각 버튼의 id가 delete인
 ```jsx
 // 아이템 삭제
 const deleteItem = (target) => {
-  list.removeChild(target);
-  itemList.splice(target.id);
+  itemList.splice(target.id, 1);
+  printItem();
 
   if (!itemList.length) {
     clearButton.classList.remove(SHOW);
@@ -190,6 +190,8 @@ const deleteItem = (target) => {
 ```
 
 선택된 li태그를 list에서 제거해준다. 그리고 해당 item은 itemList에서도 제거해준다.
+splice() 메서드를 사용할 때는 index와 index로부터 몇개의 요소를 제거할지 정해줘야한다.
+itemList가 변경되었지만 아직 화면에 반영된 li태그의 id는 과거의 인덱스이다. 맞춰주기 위해 printItem()으로 업데이트된 itemList로 화면에 반영해준다.
 
 #### 아이템 수정 기능
 

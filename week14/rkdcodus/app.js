@@ -68,8 +68,8 @@ const editComplete = () => {
 
 // 아이템 삭제
 const deleteItem = (target) => {
-  list.removeChild(target);
-  itemList.splice(target.id);
+  itemList.splice(target.id, 1);
+  printItem();
 
   if (!itemList.length) {
     clearButton.classList.remove(SHOW);
