@@ -19,8 +19,8 @@ const createHTML = (text, id) => {
   const newItem = `
   <li id=${id}>
     <span id="itemText">${text}</span>
-    <button id="edit">수정</button>
-    <button id="delete">삭제</button>
+    <img id="edit" class="itemBtn edit" src="icon/edit.svg" />
+    <img id="delete" class="itemBtn delete" src="icon/delete.svg" />
   </li>
   `;
 
