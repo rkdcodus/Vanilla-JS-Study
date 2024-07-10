@@ -19,6 +19,9 @@
 
 <br>
 
+## 📷 화면 캡처
+![2024-07-10 22;54;40](https://github.com/CHZZK-Study/Vanilla-JS-Study/assets/97906653/9925a820-98c4-4a09-8753-0d595b3d8d8e)
+
 ## 🔎 개념 정리
 
 ### 1️⃣ insertAdjacentElement()와 insertAdjacentHTML() 차이
