@@ -24,7 +24,8 @@ const image = document.querySelector(".image_wrap");
 const screen = document.getElementById("screen-size");
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
-
+const buttons = document.querySelector(".button");
+let mouse = { x: null, y: null };
 let center = 0;
 
 const nextSlide = () => {
@@ -49,6 +50,18 @@ const createImage = () => {
   });
 };
 
+const detectMouseMove = (e) => {
+  mouse.x = e.screenX;
+  mouse.y = e.screenY;
+  buttons.classList.remove("hide");
+
+  setTimeout(() => {
+    if (mouse.x === e.screenX && mouse.y === e.screenY) {
+      buttons.classList.add("hide");
+    }
+  }, 2000);
+};
+
 const toggleFullScreen = () => {
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
@@ -57,11 +70,13 @@ const toggleFullScreen = () => {
       "beforeend",
       '<i class="fa-solid fa-down-left-and-up-right-to-center"></i>'
     );
+    image.addEventListener("mousemove", detectMouseMove);
   } else {
     if (document.exitFullscreen) {
       document.exitFullscreen();
       screen.replaceChildren();
       screen.insertAdjacentHTML("beforeend", '<i class="fa-solid fa-expand">');
+      image.removeEventListener("mousemove", detectMouseMove);
     }
   }
 };
