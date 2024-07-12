@@ -50,14 +50,21 @@ const createImage = () => {
   });
 };
 
+window.addEventListener("DOMContentLoaded", createImage);
+next.addEventListener("click", nextSlide);
+prev.addEventListener("click", prevSlide);
+
+// 전체화면 기능
+
 const detectMouseMove = (e) => {
+  console.log("??");
   mouse.x = e.screenX;
   mouse.y = e.screenY;
   buttons.classList.remove("hide");
   image.style.cursor = "default";
 
   setTimeout(() => {
-    if (mouse.x === e.screenX && mouse.y === e.screenY) {
+    if (mouse.x === e.screenX && mouse.y === e.screenY && document.fullscreenElement) {
       buttons.classList.add("hide");
       image.style.cursor = "none";
     }
@@ -74,16 +81,18 @@ const toggleFullScreen = () => {
     );
     image.addEventListener("mousemove", detectMouseMove);
   } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-      screen.replaceChildren();
-      screen.insertAdjacentHTML("beforeend", '<i class="fa-solid fa-expand">');
-      image.removeEventListener("mousemove", detectMouseMove);
-    }
+    document.exitFullscreen();
   }
 };
 
-next.addEventListener("click", nextSlide);
-prev.addEventListener("click", prevSlide);
 screen.addEventListener("click", toggleFullScreen);
-window.addEventListener("DOMContentLoaded", createImage);
+
+document.addEventListener("fullscreenchange", () => {
+  if (!document.fullscreenElement) {
+    image.removeEventListener("mousemove", detectMouseMove);
+    screen.replaceChildren();
+    screen.insertAdjacentHTML("beforeend", '<i class="fa-solid fa-expand">');
+    buttons.classList.remove("hide");
+    image.style.cursor = "default";
+  }
+});
