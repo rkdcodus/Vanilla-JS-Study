@@ -54,10 +54,12 @@ const detectMouseMove = (e) => {
   mouse.x = e.screenX;
   mouse.y = e.screenY;
   buttons.classList.remove("hide");
+  image.style.cursor = "default";
 
   setTimeout(() => {
     if (mouse.x === e.screenX && mouse.y === e.screenY) {
       buttons.classList.add("hide");
+      image.style.cursor = "none";
     }
   }, 2000);
 };

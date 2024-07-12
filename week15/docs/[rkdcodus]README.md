@@ -53,10 +53,12 @@ const detectMouseMove = (e) => {
   mouse.x = e.screenX;
   mouse.y = e.screenY;
   buttons.classList.remove("hide");
+  image.style.cursor = "default";
 
   setTimeout(() => {
     if (mouse.x === e.screenX && mouse.y === e.screenY) {
       buttons.classList.add("hide");
+      image.style.cursor = "none";
     }
   }, 2000);
 };
@@ -66,7 +68,7 @@ mousemove로 마우스의 움직임이 감지되었을 때 실행되는 함수�
 마우스 위치의 값을 mouse 변수에 저장하고 마우스가 움직이고 4초 후 마우스의 위치가 같은지 확인한다.
 위치가 같다면 button의 투명도를 낮추는 애니메이션이 걸린 class를 달아준다.
 다시 마우스가 움직인다면 버튼이 나타나야하기때문에 함수가 실행될 때마다 hide class를 지워주도록 해주었다.
-
+추가로 마우스도 버튼과 함께 사라지도록 image 위에 있는 마우스는 `cursor: none` css style을 주었다.
 <br>
 
 ```css
