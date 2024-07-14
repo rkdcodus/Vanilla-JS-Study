@@ -101,8 +101,8 @@ document.addEventListener("fullscreenchange", () => {
 
 // 마우스 슬라이드 기능
 
-let prevX = 0;
 let startX = 0;
+let prevX = 0;
 
 const dragImage = (e) => {
   translateValue += e.offsetX - prevX;
@@ -119,6 +119,11 @@ image.addEventListener("mousedown", (e) => {
 image.addEventListener("mouseup", (e) => {
   image.removeEventListener("mousemove", dragImage);
   const movingX = startX - e.offsetX; // 움직인 거리
+
+  if (Math.abs(movingX) < 50) {
+    image.style.transform = `translate(${center * 100}vw)`;
+    return;
+  }
 
   if (movingX > 0) {
     nextSlide();
