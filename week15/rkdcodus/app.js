@@ -26,27 +26,29 @@ const next = document.getElementById("next");
 const prev = document.getElementById("prev");
 const buttons = document.querySelector(".button");
 let mouse = { x: null, y: null };
+let translateValue = 0;
 let center = 0;
 
 const nextSlide = () => {
-  center += 1;
-  if (center > datas.length - 1) {
-    center = datas.length - 1;
-  }
-  image.style.transform = `translate(-${center * 100}vw)`;
+  center -= 1;
+  if (-center > datas.length - 1) center = -(datas.length - 1);
+  translateValue = center * 100;
+  image.style.transform = `translate(${translateValue}vw)`;
 };
 
 const prevSlide = () => {
-  center -= 1;
-  if (center < 0) {
-    center = 0;
-  }
-  image.style.transform = `translate(-${center * 100}vw)`;
+  center += 1;
+  if (center > 0) center = 0;
+  translateValue = center * 100;
+  image.style.transform = `translate(${translateValue}vw)`;
 };
 
 const createImage = () => {
   datas.map((data) => {
-    image.insertAdjacentHTML("beforeend", `<img class="image" src='${data.url}'></img>`);
+    image.insertAdjacentHTML(
+      "beforeend",
+      `<img class="image" src='${data.url}' draggable="false"></img>`
+    );
   });
 };
 
@@ -94,5 +96,33 @@ document.addEventListener("fullscreenchange", () => {
     screen.insertAdjacentHTML("beforeend", '<i class="fa-solid fa-expand">');
     buttons.classList.remove("hide");
     image.style.cursor = "default";
+  }
+});
+
+// 마우스 슬라이드 기능
+
+let prevX = 0;
+let startX = 0;
+
+const dragImage = (e) => {
+  translateValue += e.offsetX - prevX;
+  prevX = e.offsetX;
+  image.style.transform = `translate(${translateValue}vw)`;
+};
+
+image.addEventListener("mousedown", (e) => {
+  startX = e.offsetX;
+  prevX = e.offsetX;
+  image.addEventListener("mousemove", dragImage);
+});
+
+image.addEventListener("mouseup", (e) => {
+  image.removeEventListener("mousemove", dragImage);
+  const movingX = startX - e.offsetX; // 움직인 거리
+
+  if (movingX > 0) {
+    nextSlide();
+  } else {
+    prevSlide();
   }
 });

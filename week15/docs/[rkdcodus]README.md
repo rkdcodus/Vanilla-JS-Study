@@ -13,13 +13,15 @@
 
 - [x] 전체화면 기능
 - [x] 전체화면 후 마우스가 움직이지 않으면 버튼이 잠시 보이지 않도록 구현해보기
-- [ ] 마우스 드래그 앤 드롭 이벤트로 슬라이딩 기능 구현해보기
+- [x] mouse 이벤트로 드래그 슬라이딩 기능 구현해보기
 - [ ] 마우스가 사진 위에 있지 않았을 경우, 일정 시간마다 자동으로 이미지 슬라이딩되는 기능 구현해보기
 
 #### 슬라이딩 기능
+
 ![2024-07-13 00;54;42](https://github.com/user-attachments/assets/13fc9d4b-dd3f-4c9f-8278-4a1a5fce8eb4)
 
 #### 전체화면 기능
+
 ![2024-07-13 00;59;26](https://github.com/user-attachments/assets/889db57f-7ad2-4b74-bde9-4e846a437013)
 
 #### 개선할 점
@@ -29,12 +31,15 @@
 ## 구현 설명
 
 ### ✨마우스 감지하여 버튼 투명도 조절하기
-#### 시현 영상 
+
+#### 시현 영상
+
 ![2024-07-13 00;49;05](https://github.com/user-attachments/assets/1ba0eb99-d57d-4dee-bbbd-4bbc657c3830)
 
 <br>
 
 ### 설명
+
 ```jsx
 const buttons = document.querySelector(".button");
 let mouse = { x: null, y: null };
