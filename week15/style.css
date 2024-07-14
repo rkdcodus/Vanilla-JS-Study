@@ -45,24 +45,9 @@ button {
   font-size: larger;
   cursor: pointer;
   color: #e2e2e2;
+  transition: 0.3s;
 }
 
 button:hover {
   background-color: rgba(0, 0, 0, 0.5);
-}
-
-.hide {
-  pointer-events: none;
-  animation-name: fadeOut;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
 }

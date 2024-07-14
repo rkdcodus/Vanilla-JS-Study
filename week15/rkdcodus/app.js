@@ -24,29 +24,53 @@ const image = document.querySelector(".image_wrap");
 const screen = document.getElementById("screen-size");
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
-
+const buttons = document.querySelector(".button");
+let mouse = { x: null, y: null };
+let translateValue = 0;
 let center = 0;
 
 const nextSlide = () => {
-  center += 1;
-  if (center > datas.length - 1) {
-    center = datas.length - 1;
-  }
-  image.style.transform = `translate(-${center * 100}vw)`;
+  center -= 1;
+  if (-center > datas.length - 1) center = -(datas.length - 1);
+  translateValue = center * 100;
+  image.style.transform = `translate(${translateValue}vw)`;
 };
 
 const prevSlide = () => {
-  center -= 1;
-  if (center < 0) {
-    center = 0;
-  }
-  image.style.transform = `translate(-${center * 100}vw)`;
+  center += 1;
+  if (center > 0) center = 0;
+  translateValue = center * 100;
+  image.style.transform = `translate(${translateValue}vw)`;
 };
 
 const createImage = () => {
   datas.map((data) => {
-    image.insertAdjacentHTML("beforeend", `<img class="image" src='${data.url}'></img>`);
+    image.insertAdjacentHTML(
+      "beforeend",
+      `<img class="image" src='${data.url}' draggable="false"></img>`
+    );
   });
+};
+
+window.addEventListener("DOMContentLoaded", createImage);
+next.addEventListener("click", nextSlide);
+prev.addEventListener("click", prevSlide);
+
+// 전체화면 기능
+
+const detectMouseMove = (e) => {
+  console.log("??");
+  mouse.x = e.screenX;
+  mouse.y = e.screenY;
+  buttons.classList.remove("hide");
+  image.style.cursor = "default";
+
+  setTimeout(() => {
+    if (mouse.x === e.screenX && mouse.y === e.screenY && document.fullscreenElement) {
+      buttons.classList.add("hide");
+      image.style.cursor = "none";
+    }
+  }, 2000);
 };
 
 const toggleFullScreen = () => {
@@ -57,16 +81,53 @@ const toggleFullScreen = () => {
       "beforeend",
       '<i class="fa-solid fa-down-left-and-up-right-to-center"></i>'
     );
+    image.addEventListener("mousemove", detectMouseMove);
   } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-      screen.replaceChildren();
-      screen.insertAdjacentHTML("beforeend", '<i class="fa-solid fa-expand">');
-    }
+    document.exitFullscreen();
   }
 };
 
-next.addEventListener("click", nextSlide);
-prev.addEventListener("click", prevSlide);
 screen.addEventListener("click", toggleFullScreen);
-window.addEventListener("DOMContentLoaded", createImage);
+
+document.addEventListener("fullscreenchange", () => {
+  if (!document.fullscreenElement) {
+    image.removeEventListener("mousemove", detectMouseMove);
+    screen.replaceChildren();
+    screen.insertAdjacentHTML("beforeend", '<i class="fa-solid fa-expand">');
+    buttons.classList.remove("hide");
+    image.style.cursor = "default";
+  }
+});
+
+// 마우스 슬라이드 기능
+
+let startX = 0;
+let prevX = 0;
+
+const dragImage = (e) => {
+  translateValue += e.offsetX - prevX;
+  prevX = e.offsetX;
+  image.style.transform = `translate(${translateValue}vw)`;
+};
+
+image.addEventListener("mousedown", (e) => {
+  startX = e.offsetX;
+  prevX = e.offsetX;
+  image.addEventListener("mousemove", dragImage);
+});
+
+image.addEventListener("mouseup", (e) => {
+  image.removeEventListener("mousemove", dragImage);
+  const movingX = startX - e.offsetX; // 움직인 거리
+
+  if (Math.abs(movingX) < 50) {
+    image.style.transform = `translate(${center * 100}vw)`;
+    return;
+  }
+
+  if (movingX > 0) {
+    nextSlide();
+  } else {
+    prevSlide();
+  }
+});
