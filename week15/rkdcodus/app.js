@@ -25,9 +25,12 @@ const screen = document.getElementById("screen-size");
 const next = document.getElementById("next");
 const prev = document.getElementById("prev");
 const buttons = document.querySelector(".button");
+
 let mouse = { x: null, y: null };
 let translateValue = 0;
 let center = 0;
+let autoDireaction = true;
+let autoSlide = false;
 
 const nextSlide = () => {
   center -= 1;
@@ -56,10 +59,26 @@ window.addEventListener("DOMContentLoaded", createImage);
 next.addEventListener("click", nextSlide);
 prev.addEventListener("click", prevSlide);
 
+// 자동 슬라이드 기능 구현
+setInterval(() => {
+  if (document.fullscreenElement && autoSlide) {
+    if (center === 0) {
+      autoDireaction = true;
+    } else if (-center === datas.length - 1) {
+      autoDireaction = false;
+    }
+
+    if (autoDireaction) {
+      nextSlide();
+    } else {
+      prevSlide();
+    }
+  }
+}, 7000);
+
 // 전체화면 기능
 
 const detectMouseMove = (e) => {
-  console.log("??");
   mouse.x = e.screenX;
   mouse.y = e.screenY;
   buttons.classList.remove("hide");
@@ -69,6 +88,7 @@ const detectMouseMove = (e) => {
     if (mouse.x === e.screenX && mouse.y === e.screenY && document.fullscreenElement) {
       buttons.classList.add("hide");
       image.style.cursor = "none";
+      autoSlide = true;
     }
   }, 2000);
 };
@@ -96,6 +116,7 @@ document.addEventListener("fullscreenchange", () => {
     screen.insertAdjacentHTML("beforeend", '<i class="fa-solid fa-expand">');
     buttons.classList.remove("hide");
     image.style.cursor = "default";
+    autoSlide = false;
   }
 });
 

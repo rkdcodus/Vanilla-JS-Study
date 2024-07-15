@@ -21,7 +21,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 1s;
+  transition: 3s;
+  transition-timing-function: ease-in-out;
 }
 
 .image {
